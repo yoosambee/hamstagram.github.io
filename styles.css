@@ -1,5 +1,6 @@
 body {
-  font-size: 1.5vw;
+  font-size: 1.6vw;
+  padding: 0;
   margin: 0;
   font-family: 'Roboto', sans-serif;
   background-color: #fafafa;
@@ -10,9 +11,8 @@ body {
   grid-template:
                 "header header header"
                 "main main aside"
-                "main main aside"
                 "footer footer footer";
-  grid-template-rows: 10vw 1fr 1fr;
+  grid-template: auto 1fr auto;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 5px;
 }
@@ -40,6 +40,7 @@ header {
     margin: auto;
     background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -68,7 +69,7 @@ h2 {
   margin: 2vw 3vw 1.5vw;
 }
 
-aside > p {
+aside > .aside-extra > p {
   margin: 1vw 2vw;
 }
 
@@ -90,31 +91,36 @@ a {
 a:hover {
   background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 aside {
+  display: float;
   grid-area: aside;
   background-color: #fff;
   margin: 1vw 3vw;
   border: 1px solid #dbdbdb;
   border-width: thin;
+  max-height: 100%;
 }
 
-.aside-photo-container {
+.aside-photos {
   display: flex;
   flex-direction: column;
+  max-height: auto;
+  justify-content: space-between;
   align-items: center;
   padding-bottom: 1.5vw;
   margin-bottom: 1vw;
   border-bottom: 1px solid #dbdbdb;
 }
 
-.aside-photo-container > img {
+.aside-photos > img {
   height: 15vw;
   width: 15vw;
   margin: 1.5vw 1.5vw;
-  border-radius: 50%
+  border-radius: 50%;
 }
 
 footer {
@@ -127,4 +133,46 @@ footer {
 
 .footer-button {
   margin: 0 2.5vw;
+}
+
+@media (min-width: 0px) and (max-width: 700px) {
+  
+  body {
+    font-size: 3vw;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .aside-photos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1.5vw;
+    margin-bottom: 1vw;
+    border-bottom: 1px solid #dbdbdb;
+  }
+
+  .aside-photos {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 0;
+  }
+
+  .aside-extra  {
+    margin: 0 0 3vw 1vw;
+  }
+
+  .aside-extra > p {
+    text-align: center;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1100px) {
+  body {
+    font-size: 2vw;
+  }
 }
